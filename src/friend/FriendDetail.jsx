@@ -1,9 +1,10 @@
-import React, { use } from 'react';
+import React, { use, useContext, } from 'react';
 import { FaArchive } from 'react-icons/fa';
 import { IoVideocamOutline } from 'react-icons/io5';
 import { LuBellRing, LuMessageCircleMore } from 'react-icons/lu';
 import { MdOutlineDelete, MdWifiCalling3 } from 'react-icons/md';
 import {  useParams } from 'react-router';
+import { FriendContext } from '../context/FriendProvider';
 
 const dataPromise = fetch('/card.json').then(res=>res.json());
 const FriendDetail = () => {
@@ -15,6 +16,10 @@ const FriendDetail = () => {
 
     const friend = data.find(data=>data.id==id);
     console.log(friend)
+
+
+   const{handleCall,call} =useContext(FriendContext)
+   console.log(call)
    
     return (
         
@@ -75,7 +80,7 @@ const FriendDetail = () => {
                  <div className='shadow p-3  col-span-3  h-40  bg-white '>
                     <p className=' font-semibold text-gray-500 mb-2'>Quick Check-In</p>
                     <div className='grid grid-cols-3 gap-2 '>
-                        <button className='btn h-20 flex flex-col text-xl'> <MdWifiCalling3></MdWifiCalling3> Call</button>
+                        <button onClick={()=>handleCall(friend)} className='btn h-20 flex flex-col text-xl'> <MdWifiCalling3></MdWifiCalling3> Call</button>
                         <button className='btn h-20 flex flex-col text-xl'><LuMessageCircleMore></LuMessageCircleMore> Text</button>
                         <button className='btn h-20 flex flex-col text-xl'><IoVideocamOutline></IoVideocamOutline> Video</button>
                     </div>

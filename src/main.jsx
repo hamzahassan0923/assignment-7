@@ -8,6 +8,7 @@ import Home from './pages/home/Home'
 import TimeLines from './pages/timeline/TimeLines'
 import Stats from './pages/stats/Stats'
 import FriendDetail from './friend/FriendDetail'
+import FriendProvider from './context/FriendProvider'
 
 
 const router = createBrowserRouter([
@@ -36,6 +37,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router}></RouterProvider>
+   <FriendProvider>
+     <RouterProvider router={router}></RouterProvider>
+   </FriendProvider>
   </StrictMode>,
 )
