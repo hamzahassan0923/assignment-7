@@ -5,7 +5,7 @@ import CardPage from './card/page';
 //  const res = await fetch('card.json')
 //     const data = await (res).json();
 //     console.log(data,"data")
-const dataPromise = fetch('card.json').then(res=>res.json())
+const dataPromise = fetch('/card.json').then(res=>res.json());
 
 const Home = () => {
    
