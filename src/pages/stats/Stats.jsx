@@ -1,15 +1,23 @@
-import React from 'react';
-import { Pie, PieChart } from 'recharts';
-const data = [
-  { name: 'Text', value: 400, fill: '#7E35E1' },
-  { name: 'Group B', value: 300, fill: '#244D3F' },
-  { name: 'Group C', value: 300, fill: '  #37A163' },
+import React, { useContext } from 'react';
+import { Legend, Pie, PieChart, Tooltip } from 'recharts';
+import { FriendContext } from '../../context/FriendProvider';
+
+const Stats = () => {
+
+ const{call ,text, video} =useContext(FriendContext);
+    const data = [
+  { name: 'Text', value: text.length, fill: '#7E35E1' },
+  { name: 'Call', value:call.length , fill: '#244D3F' },
+  { name: 'Video', value: video.length, fill: '  #37A163' },
   
 ];
-const Stats = () => {
     return (
-     <PieChart 
-     style={{ width: '100%', maxWidth: '500px', maxHeight: '80vh', aspectRatio: 1 }} responsive>
+    <div className='bg-[#F8FAFC]'>
+        <p className='text-5xl font-bold ml-25 pt-12 pb-8'>Friendship Analytics</p>
+        <div className='container mx-auto bg-white  '>
+<p className='font-semibold text-lg p-2 ml-4'>By Interaction Type</p>
+             <PieChart className='flex justify-center ml-90 py-10'
+     style={{ width: '100%', maxWidth: '350px', maxHeight: '80vh', aspectRatio: 1 }} responsive>
       <Pie
         data={data}
         innerRadius="80%"
@@ -22,8 +30,11 @@ const Stats = () => {
         dataKey="value"
         isAnimationActive={true}
       />
-     
+      <Tooltip></Tooltip>
+     <Legend >   </Legend>
     </PieChart>
+        </div>
+    </div>
     );
 };
 
