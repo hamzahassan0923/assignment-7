@@ -9,6 +9,7 @@ import TimeLines from './pages/timeline/TimeLines'
 import Stats from './pages/stats/Stats'
 import FriendDetail from './friend/FriendDetail'
 import FriendProvider from './context/FriendProvider'
+import { ToastContainer } from 'react-toastify'
 
 
 const router = createBrowserRouter([
@@ -39,6 +40,7 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
    <FriendProvider>
      <RouterProvider router={router}></RouterProvider>
+      <ToastContainer/>
    </FriendProvider>
   </StrictMode>,
 )

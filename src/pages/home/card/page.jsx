@@ -16,7 +16,10 @@ const CardPage = ({dataPromise}) => {
     <p className='text-xl font-bold'>{data.name}</p>
     <p>{data.days_since_contact}d ago</p>
     <p className='bg-[#CBFADB] rounded-2xl  badge badge-success'>{data.tags}</p>
-    <p >{data.status}</p>
+   <div className=
+   {`badge badge-soft font-medium pb-1 rounded-3xl ${data.status === 'overdue' ? 'bg-red-500 text-white' : data.status === 'almost due' ? 'bg-yellow-500 text-white' : 
+   data.status === 'on-track' ? 'bg-green-800 text-white' : ''}`}>
+     {data.status} </div>
     
    
  

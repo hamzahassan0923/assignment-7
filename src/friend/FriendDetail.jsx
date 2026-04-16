@@ -18,8 +18,12 @@ const FriendDetail = () => {
     console.log(friend)
 
 
-   const{handleCall,call} =useContext(FriendContext)
-   console.log(call)
+   const{handleCall,call,
+      handleVideo,video,
+    handleText,text
+   } =useContext(FriendContext)
+   console.log(call ,video,
+     text)
    
     return (
         
@@ -33,7 +37,7 @@ const FriendDetail = () => {
     <p className='text-xl font-bold'>{friend.name}</p>
   
     <p className='bg-[#CBFADB] rounded-2xl  badge badge-success'>{friend.tags}</p>
-    <p >{friend.status}</p>
+    <div className={`badge badge-soft font-medium pb-1 rounded-3xl ${friend.status === 'overdue' ? 'bg-red-500 text-white' : friend.status === 'almost due' ? 'bg-yellow-500 text-white' : friend.status === 'on-track' ? 'bg-green-800 text-white' : ''}`}> {friend.status} </div>
     <p className='text-gray-400'>"{friend.bio}"</p>
     <p className='text-gray-400'>Preferred: email</p>
 </div>
@@ -81,8 +85,8 @@ const FriendDetail = () => {
                     <p className=' font-semibold text-gray-500 mb-2'>Quick Check-In</p>
                     <div className='grid grid-cols-3 gap-2 '>
                         <button onClick={()=>handleCall(friend)} className='btn h-20 flex flex-col text-xl'> <MdWifiCalling3></MdWifiCalling3> Call</button>
-                        <button className='btn h-20 flex flex-col text-xl'><LuMessageCircleMore></LuMessageCircleMore> Text</button>
-                        <button className='btn h-20 flex flex-col text-xl'><IoVideocamOutline></IoVideocamOutline> Video</button>
+                        <button onClick={()=>handleText(friend)} className='btn h-20 flex flex-col text-xl'><LuMessageCircleMore></LuMessageCircleMore> Text</button>
+                        <button onClick={()=>handleVideo(friend)} className='btn h-20 flex flex-col text-xl'><IoVideocamOutline></IoVideocamOutline> Video</button>
                     </div>
                  </div>
                
