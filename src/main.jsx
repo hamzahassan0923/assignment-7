@@ -10,6 +10,7 @@ import Stats from './pages/stats/Stats'
 import FriendDetail from './friend/FriendDetail'
 import FriendProvider from './context/FriendProvider'
 import { ToastContainer } from 'react-toastify'
+import ErrorPage from './pages/ErrorPage/ErrorPage'
 
 
 const router = createBrowserRouter([
@@ -32,8 +33,9 @@ const router = createBrowserRouter([
          ,Component:FriendDetail
       }
    
-    ]
-  }
+    ],
+    errorElement:<ErrorPage></ErrorPage>
+  },
 ]);
 
 createRoot(document.getElementById('root')).render(

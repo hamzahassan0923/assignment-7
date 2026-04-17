@@ -41,9 +41,9 @@ const Home = () => {
             </div>
 
             {/* Your friends all cards sections */}
-            <div className='py-10'>
+            <div className='py-10 '>
                 <p className='font-bold text-2xl'>Your Friends</p>
-             <Suspense fallback={<span>loading...</span>}>
+             <Suspense fallback={<div className='flex justify-center items-center'><span className="loading loading-spinner text-info w-7 h-7  "></span></div>}>
              <CardPage dataPromise={dataPromise}></CardPage>
              </Suspense>
             </div>
